@@ -1,5 +1,7 @@
 ### Circ Totals
 
+Count up all circ transactions by date, broken out by transaction type
+
     SELECT
     t.transaction_gmt::DATE AS "date"
     ,COUNT(t.id) FILTER(WHERE t.op_code = 'o') AS checkouts
