@@ -6,7 +6,7 @@ Please review and follow our comprehensive styleguide.
 ---
 
 ### Styleguide:
-  1. ¯\_(ツ)_/¯
+  1. ¯\\_(ツ)_/¯
   2. ...
  
 Fin
