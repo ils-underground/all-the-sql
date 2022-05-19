@@ -2,21 +2,23 @@
 
 Count up all circ transactions by date, broken out by transaction type
 
-    SELECT
-    t.transaction_gmt::DATE AS "date"
-    ,COUNT(t.id) FILTER(WHERE t.op_code = 'o') AS checkouts
-    ,COUNT(t.id) FILTER(WHERE t.op_code = 'i') AS checkins
-    ,COUNT(t.id) FILTER(WHERE t.op_code = 'r') AS renewals
-    ,COUNT(t.id) FILTER(WHERE t.op_code = 'f') AS filled_holds
-    ,COUNT(t.id) FILTER(WHERE t.op_code ~ 'n|h') AS holds_placed
-    ,COUNT(t.id) FILTER(WHERE t.op_code = 'u') AS use_count
-    ,COUNT(t.id) FILTER(WHERE t.op_code = 'b') AS bookings
+```sql
+SELECT
+t.transaction_gmt::DATE AS "date"
+,COUNT(t.id) FILTER(WHERE t.op_code = 'o') AS checkouts
+,COUNT(t.id) FILTER(WHERE t.op_code = 'i') AS checkins
+,COUNT(t.id) FILTER(WHERE t.op_code = 'r') AS renewals
+,COUNT(t.id) FILTER(WHERE t.op_code = 'f') AS filled_holds
+,COUNT(t.id) FILTER(WHERE t.op_code ~ 'n|h') AS holds_placed
+,COUNT(t.id) FILTER(WHERE t.op_code = 'u') AS use_count
+,COUNT(t.id) FILTER(WHERE t.op_code = 'b') AS bookings
 
-    FROM
-    sierra_view.circ_trans t
+FROM
+sierra_view.circ_trans t
 
-    GROUP BY 1
-    ORDER BY 1
+GROUP BY 1
+ORDER BY 1
+```
     
 #### Output    
 | date | checkouts | checkins | renewals | filled_holds | holds_placed | use_count | bookings |
